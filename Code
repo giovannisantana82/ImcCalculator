@@ -1,0 +1,31 @@
+package Calculadora;
+
+import java.util.Scanner;
+
+public class CalculadoraIMC {
+	
+	public static void main(String[] args) {
+		//IMC = PESO / ( ALTURA X ALTURA)
+		
+		Scanner entrada = new Scanner(System.in);
+		
+		System.out.println("Digite seu peso: ");
+		String valorPeso = entrada.next().replace(",", ".");
+		System.out.println("Digite sua altura: ");
+      	String valorAltura = entrada.next().replace("," , ".");
+      	
+      	double peso = Double.parseDouble(valorPeso);
+      	double altura = Double.parseDouble(valorAltura);
+      	
+      	double imc = peso / (Math.pow(altura, 2));
+		if(imc <= 18.4) {
+			System.out.printf("Seu imc é %f! ABAIXO DO PESO!", imc);
+		} else if(imc <= 24.9) {
+			System.out.printf("Seu imc é %f! PESO NORMAL!", imc);
+		} else if(imc > 25) {
+			System.out.printf("Seu imc é %f! ACIMA DO PESO!", imc);
+		}
+		
+		entrada.close();
+	}
+}
